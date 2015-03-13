@@ -7,20 +7,25 @@ package com.iluwatar;
  */
 public enum Action {
 
-	HUNT, TALE, GOLD, ENEMY;
+    HUNT("hunted a rabbit", "arrives for dinner"),
+    TALE("tells a tale", "comes to listen"),
+    GOLD("found gold", "takes his share of the gold"),
+    ENEMY("spotted enemies", "runs for cover"),
+    NONE("", "");
 
-	public String toString() {
+    private String title;
+    private String description;
 
-		switch (this) {
-		case ENEMY:
-			return "spotted enemies";
-		case GOLD:
-			return "found gold";
-		case HUNT:
-			return "hunted a rabbit";
-		case TALE:
-			return "tells a tale";
-		}
-		return "";
+    Action(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String toString() {
+		return title;
 	}
 }

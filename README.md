@@ -37,6 +37,7 @@
 * [Model-View-Presenter](#model-view-presenter)
 * [Double Checked Locking](#double-checked-locking)
 * [Servant](#servant)
+* [Null Object](#null-object)
 
 ## <a name="abstract-factory">Abstract Factory</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
@@ -49,6 +50,9 @@
 * a family of related product objects is designed to be used together, and you need to enforce this constraint
 * you want to provide a class library of products, and you want to reveal just their interfaces, not their implementations
 
+**Real world examples:**
+* [javax.xml.parsers.DocumentBuilderFactory](http://docs.oracle.com/javase/8/docs/api/javax/xml/parsers/DocumentBuilderFactory.html)
+
 ## <a name="builder">Builder</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Separate the construction of a complex object from its representation so that the same construction process can create different representations.
 
@@ -57,6 +61,9 @@
 **Applicability:** Use the Builder pattern when
 * the algorithm for creating a complex object should be independent of the parts that make up the object and how they're assembled
 * the construction process must allow different representations for the object that's constructed
+
+**Real world examples:**
+* [java.lang.StringBuilder](http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
 
 ## <a name="factory-method">Factory Method</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
@@ -68,6 +75,9 @@
 * a class wants its subclasses to specify the objects it creates
 * classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper subclass is the delegate
 
+**Real world examples:**
+* [java.util.Calendar#getInstance()](http://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html#getInstance%28%29)
+
 ## <a name="prototype">Prototype</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
 
@@ -77,6 +87,9 @@
 * when the classes to instantiate are specified at run-time, for example, by dynamic loading; or
 * to avoid building a class hierarchy of factories that parallels the class hierarchy of products; or
 * when instances of a class can have one of only a few different combinations of state. It may be more convenient to install a corresponding number of prototypes and clone them rather than instantiating the class manually, each time with the appropriate state
+
+**Real world examples:**
+* [java.lang.Object#clone()](http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#clone%28%29)
 
 ## <a name="singleton">Singleton</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Ensure a class only has one instance, and provide a global point of access to it.
@@ -92,6 +105,9 @@
 * managing a connection to a database
 * file manager
 
+**Real world examples:**
+* [java.lang.Runtime#getRuntime()](http://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#getRuntime%28%29)
+
 ## <a name="adapter">Adapter</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Convert the interface of a class into another interface the clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
 
@@ -101,6 +117,9 @@
 * you want to use an existing class, and its interface does not match the one you need
 * you want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don't necessarily have compatible interfaces
 * you need to use several existing subclasses, but it's impractical to adapt their interface by subclassing every one. An object adapter can adapt the interface of its parent class.
+
+**Real world examples:**
+* [java.util.Arrays#asList()](http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#asList%28T...%29)
 
 ## <a name="bridge">Bridge</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Decouple an abstraction from its implementation so that the two can vary independently.
@@ -123,6 +142,10 @@
 **Applicability:** Use the Composite pattern when
 * you want to represent part-whole hierarchies of objects
 * you want clients to be able to ignore the difference between compositions of objects and individual objects. Clients will treat all objects in the composite structure uniformly
+
+**Real world examples:**
+* [java.awt.Container](http://docs.oracle.com/javase/8/docs/api/java/awt/Container.html) and [java.awt.Component](http://docs.oracle.com/javase/8/docs/api/java/awt/Component.html)
+* [Apache Wicket](https://github.com/apache/wicket) component tree, see [Component](https://github.com/apache/wicket/blob/91e154702ab1ff3481ef6cbb04c6044814b7e130/wicket-core/src/main/java/org/apache/wicket/Component.java) and [MarkupContainer](https://github.com/apache/wicket/blob/b60ec64d0b50a611a9549809c9ab216f0ffa3ae3/wicket-core/src/main/java/org/apache/wicket/MarkupContainer.java)
 
 ## <a name="decorator">Decorator</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
@@ -156,6 +179,9 @@
 * many groups of objects may be replaced by relatively few shared objects once extrinsic state is removed
 * the application doesn't depend on object identity. Since flyweight objects may be shared, identity tests will return true for conceptually distinct objects.
 
+**Real world examples:**
+* [java.lang.Integer#valueOf(int)](http://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html#valueOf%28int%29)
+
 ## <a name="proxy">Proxy</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Provide a surrogate or placeholder for another object to control access to it.
 
@@ -174,6 +200,9 @@
 * implement logging
 * facilitate network connection
 * to count references to an object
+
+**Real world examples:**
+* [java.lang.reflect.Proxy](http://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Proxy.html)
 
 ## <a name="service-locator">Service Locator</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Encapsulate the processes involved in obtaining a service with a strong abstraction layer.
@@ -198,6 +227,9 @@
 * you want to issue a request to one of several objects without specifying the receiver explicitly
 * the set of objects that can handle a request should be specified dynamically
 
+**Real world examples:**
+* [java.util.logging.Logger#log()](http://docs.oracle.com/javase/8/docs/api/java/util/logging/Logger.html#log%28java.util.logging.Level,%20java.lang.String%29)
+
 ## <a name="command">Command</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.
 
@@ -216,6 +248,9 @@
 * to keep a history of requests
 * implement callback functionality
 * implement the undo functionality
+
+**Real world examples:**
+* [java.lang.Runnable](http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html)
 
 ## <a name="interpreter">Interpreter</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.
@@ -236,6 +271,9 @@
 * to support multiple traversals of aggregate objects
 * to provide a uniform interface for traversing different aggregate structures
 
+**Real world examples:**
+* [java.util.Iterator](http://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html)
+
 ## <a name="mediator">Mediator</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
 
@@ -255,6 +293,8 @@
 * a snapshot of an object's state must be saved so that it can be restored to that state later, and
 * a direct interface to obtaining the state would expose implementation details and break the object's encapsulation
 
+**Real world examples:**
+* [java.util.Date](http://docs.oracle.com/javase/8/docs/api/java/util/Date.html)
 
 ## <a name="observer">Observer</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
@@ -271,6 +311,8 @@
 
 * changing in one object leads to a change in other objects
 
+**Real world examples:**
+* [java.util.Observer](http://docs.oracle.com/javase/8/docs/api/java/util/Observer.html)
 
 ## <a name="state">State</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.
@@ -312,6 +354,9 @@
 * many distinct and unrelated operations need to be performed on objects in an object structure, and you want to avoid "polluting" their classes with these operations. Visitor lets you keep related operations together by defining them in one class. When the object structure is shared by many applications, use Visitor to put operations in just those applications that need them
 * the classes defining the object structure rarely change, but you often want to define new operations over the structure. Changing the object structure classes requires redefining the interface to all visitors, which is potentially costly. If the object structure classes change often, then it's probably better to define the operations in those classes
 
+**Real world examples:**
+* [Apache Wicket](https://github.com/apache/wicket) component tree, see [MarkupContainer](https://github.com/apache/wicket/blob/b60ec64d0b50a611a9549809c9ab216f0ffa3ae3/wicket-core/src/main/java/org/apache/wicket/MarkupContainer.java)
+
 ## <a name="model-view-presenter">Model-View-Presenter</a> [&#8593;](#list-of-design-patterns)
 **Intent:** Apply a "Separation of Concerns" principle in a way that allows developers to build and test user interfaces.
 
@@ -337,6 +382,14 @@
 
 **Applicability:** Use the Servant pattern when
 * When we want some objects to perform a common action and don't want to define this action as a method in every class.
+
+## <a name="null-object">Null Object</a> [&#8593;](#list-of-design-patterns)
+**Intent:** In most object-oriented languages, such as Java or C#, references may be null. These references need to be checked to ensure they are not null before invoking any methods, because methods typically cannot be invoked on null references. Instead of using a null reference to convey absence of an object (for instance, a non-existent customer), one uses an object which implements the expected interface, but whose method body is empty. The advantage of this approach over a working default implementation is that a Null Object is very predictable and has no side effects: it does nothing.
+
+![alt text](https://github.com/iluwatar/java-design-patterns/blob/master/null-object/etc/test.png "Null Object")
+
+**Applicability:** Use the Null Object pattern when
+* You want to avoid explicit null checks and keep the algorithm elegant and easy to read.
 
 
 # Frequently asked questions
@@ -381,6 +434,7 @@ The difference is the intent of the patterns. While Proxy controls access to the
 * [Effective Java (2nd Edition)](http://www.amazon.com/Effective-Java-Edition-Joshua-Bloch/dp/0321356683)
 * [Java Generics and Collections](http://www.amazon.com/Java-Generics-Collections-Maurice-Naftalin/dp/0596527756/)
 * [Let’s Modify the Objects-First Approach into Design-Patterns-First](http://edu.pecinovsky.cz/papers/2006_ITiCSE_Design_Patterns_First.pdf)
+* [Pattern Languages of Program Design](http://www.amazon.com/Pattern-Languages-Program-Design-Coplien/dp/0201607344/ref=sr_1_1)
 
 
 
